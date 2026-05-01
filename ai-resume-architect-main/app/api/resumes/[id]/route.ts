@@ -1,12 +1,19 @@
 import { NextResponse } from "next/server";
 
-export async function POST(
+export async function DELETE(
   request: Request,
   { params }: { params: { id: string } }
 ) {
   const id = params.id;
 
+  if (!id) {
+    return NextResponse.json({ error: "No ID" }, { status: 400 });
+  }
+
+  // For now just simulate delete
   console.log("Deleting resume:", id);
 
-  return NextResponse.redirect(new URL("/dashboard", request.url));
+  return NextResponse.json({
+    message: `Resume ${id} deleted successfully`
+  });
 }
