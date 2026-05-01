@@ -5,6 +5,6 @@ export async function GET(request: Request) {
   const id = searchParams.get("id");
 
   return NextResponse.json({
-    message: `PDF working for resume ${id}`,
+   message: `PDF working UPDATED for resume ${id}`,
   });
 }
